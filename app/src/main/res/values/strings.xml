@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Crypto Manager</string>
+
+    <!-- Main activity -->
+    <string name="action_refresh_tickers">Refresh</string>
+    <string name="action_add_listings">Add…</string>
+    <string name="action_clear_tickers">Clear all</string>
+    <string name="action_delete_tickers">Delete</string>
+    <string name="last_updated_text">Last updated: %1$s</string>
+    <string name="global_market_text">Global market</string>
+    <string name="active_cryptocurrencies_text">Cryptocurrencies: %1$d</string>
+    <string name="active_markets_text">Markets: %1$d</string>
+    <string name="total_market_cap_text">Market Cap: %1$s</string>
+    <string name="total_volume_text">24h Vol: %1$s</string>
+    <string name="btc_market_cap_text">BTC Dominance: %1$.1f%%</string>
+    <string name="active_cryptocurrencies_empty_text">Cryptocurrencies: N/A</string>
+    <string name="active_markets_empty_text">Markets: N/A</string>
+    <string name="total_market_cap_empty_text">Market Cap: N/A</string>
+    <string name="total_volume_empty_text">24h Vol: N/A</string>
+    <string name="btc_market_cap_empty_text">BTC Dominance: N/A</string>
+    <string name="last_updated_empty_text">Last updated: N/A</string>
+    <string name="tickers_text">Cryptocurrencies</string>
+
+    <!-- AddListingsDialogFragment -->
+    <string name="title_dialog_add_listings">Choose listings to add</string>
+    <string name="btn_ok_add_listings">OK</string>
+    <string name="btn_cancel_add_listings">Cancel</string>
+    <string name="search_query_hint">Search…</string>
+    <string name="listing_text">%1$s (%2$s)</string>
+
+    <!-- TickersDetailActivity -->
+    <string name="id_format">ID: %1$d</string>
+    <string name="circulating_supply_format">Circulating supply: %1$s</string>
+    <string name="total_supply_format">Total supply: %1$s</string>
+    <string name="max_supply_format">Max supply: %1$s</string>
+    <string name="change_1h_format">Change 1h: %1$+.2f%%</string>
+    <string name="change_7d_format">Change 7d: %1$+.2f%%</string>
+    <string name="change_24h_format">Change 24h: %1$+.2f%%</string>
+    <string name="detail_price_format">Price: %1$s</string>
+    <string name="symbol_format">Symbol: %1$s</string>
+
+    <!-- Error texts -->
+    <string name="not_online_error_text">There is no network connection</string>
+    <string name="network_error_text">Error connecting to www.coinmarketcap.com</string>
+    <string name="empty_response_text">Empty response from www.coinmarketcap.com</string>
+    <string name="unknown_uri_error_text">Unknown uri: </string>
+    <string name="gettype_not_implemented_error_text">getType is not implemented</string>
+    <string name="insert_error_text">Problem while inserting into uri: </string>
+    <string name="loader_not_implemented_error_text">Loader not implemented: </string>
+
+    <!-- Widget -->
+    <string name="no_widget_data">No ticker data</string>
+
+    <!-- Common -->
+    <string name="rank_format">Rank: %1$d</string>
+    <string name="market_cap_format">Market cap: %1$s</string>
+    <string name="volume_format">Volume: %1$s</string>
+    <string name="price_format">%1$s</string>
+    <string name="change_format">%1$+.2f%%</string>
+    <string name="title_activity_test">TestActivity</string>
+
+</resources>

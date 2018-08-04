@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".BaseMainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:id="@+id/textview_last_updated"
+        style="@style/MaterialTypography.Regular.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/material_typography_secondary_text_color_dark" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorPrimaryLight"
+        app:cardCornerRadius="@dimen/cardview_default_radius"
+        app:cardElevation="@dimen/cardview_default_elevation">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textview_global_market"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/material_card_title_block_large_padding_bottom_last_block"
+                android:paddingEnd="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingTop="@dimen/material_card_title_block_large_padding_top"
+                android:text="@string/global_market_text"
+                style="@style/MaterialTypography.Regular.Headline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textview_active_cryptocurrencies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingStart="@dimen/material_card_supporting_text_padding_horizontal"
+                android:textColor="@color/material_typography_primary_text_color_dark"
+                android:textSize="@dimen/material_card_supporting_text_text_size"
+                app:layout_constraintBaseline_toBaselineOf="@id/textview_total_volume"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textview_active_markets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingStart="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingTop="@dimen/material_card_supporting_text_padding_top"
+                android:textColor="@color/material_typography_primary_text_color_dark"
+                android:textSize="@dimen/material_card_supporting_text_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_active_cryptocurrencies" />
+
+            <TextView
+                android:id="@+id/textview_total_market_cap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingStart="@dimen/material_card_supporting_text_padding_horizontal"
+                android:textColor="@color/material_typography_primary_text_color_dark"
+                android:textSize="@dimen/material_card_supporting_text_text_size"
+                app:layout_constraintBaseline_toBaselineOf="@id/textview_global_market"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textview_total_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingStart="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingTop="@dimen/material_card_supporting_text_padding_top"
+                android:textColor="@color/material_typography_primary_text_color_dark"
+                android:textSize="@dimen/material_card_supporting_text_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_total_market_cap" />
+
+            <TextView
+                android:id="@+id/textview_btc_market_cap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/material_card_supporting_text_padding_bottom_last_block"
+                android:paddingEnd="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingStart="@dimen/material_card_supporting_text_padding_horizontal"
+                android:paddingTop="@dimen/material_card_supporting_text_padding_top"
+                android:textColor="@color/material_typography_primary_text_color_dark"
+                android:textSize="@dimen/material_card_supporting_text_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_total_volume" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_listings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/material_card_title_block_large_padding_bottom_last_block"
+                android:paddingEnd="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingTop="@dimen/material_card_title_block_large_padding_top"
+                android:text="@string/tickers_text"
+                style="@style/MaterialTypography.Regular.Headline" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_tickers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="afterDescendants"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

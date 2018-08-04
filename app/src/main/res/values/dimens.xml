@@ -1,0 +1,18 @@
+<resources>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
+
+    <!-- MainActivity -->
+    <dimen name="main_market_cap_left_margin">12dp</dimen>
+    <dimen name="main_price_right_margin">20dp</dimen>
+
+    <!-- Widget -->
+    <!-- As of Android 4.0, app widgets are automatically given padding -->
+    <dimen name="widget_padding">0dp</dimen>
+    <dimen name="widget_default_height">180dp</dimen>
+    <dimen name="widget_default_width">250dp</dimen>
+    <dimen name="widget_default_resize_width">250dp</dimen>
+    <dimen name="widget_default_resize_height">110dp</dimen>
+    <dimen name="widget_change_24h_start_margin">12dp</dimen>
+    <dimen name="widget_change_24h_width">112dp</dimen>
+</resources>
