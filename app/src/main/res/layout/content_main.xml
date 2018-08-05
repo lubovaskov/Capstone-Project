@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/material_card_supporting_text_padding_bottom_last_block"
                     android:paddingTop="@dimen/material_card_supporting_text_padding_top"
-                    android:textColor="@color/material_typography_primary_text_color_dark"
+                    android:textColor="@color/material_typography_secondary_text_color_dark"
                     app:layout_constraintBaseline_toBaselineOf="@id/textview_total_market_cap"
                     app:layout_constraintEnd_toEndOf="parent" />
 
