@@ -152,15 +152,16 @@ public class AddListingsAdapter
 
         @Override
         public void onFocusChange(View view, boolean focused) {
+            float newTextSize;
             if (focused) {
-                tvListingName.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                        mContext.getResources().getDimension(
-                                R.dimen.material_list_normal_primary_text_size) + 8);
+                newTextSize =
+                        mContext.getResources().getDimension(R.dimen.material_list_normal_primary_text_size) +
+                                mContext.getResources().getDimension(R.dimen.focused_text_size_increase);
             } else {
-                tvListingName.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                        mContext.getResources().getDimension(
-                                R.dimen.material_list_normal_primary_text_size));
+                newTextSize = mContext.getResources().getDimension(
+                        R.dimen.material_list_normal_primary_text_size);
             }
+            tvListingName.setTextSize(TypedValue.COMPLEX_UNIT_PX, newTextSize);
         }
 
         void selectListing(Listing listing) {

@@ -196,15 +196,18 @@ public class TickersAdapter extends RecyclerView.Adapter<TickersAdapter.TickersA
 
         @Override
         public void onFocusChange(View view, boolean focused) {
+            float newTextSize;
             if (focused) {
-                tvSymbol.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                        mContext.getResources().getDimension(
-                                R.dimen.material_list_normal_primary_text_size) + 8);
+                newTextSize =
+                        mContext.getResources().getDimension(R.dimen.material_list_normal_primary_text_size) +
+                                mContext.getResources().getDimension(R.dimen.focused_text_size_increase);
             } else {
-                tvSymbol.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                        mContext.getResources().getDimension(
-                                R.dimen.material_list_normal_primary_text_size));
+                newTextSize = mContext.getResources().getDimension(
+                        R.dimen.material_list_normal_primary_text_size);
             }
+            tvSymbol.setTextSize(TypedValue.COMPLEX_UNIT_PX, newTextSize);
+            tvPrice.setTextSize(TypedValue.COMPLEX_UNIT_PX, newTextSize);
+            tvChange24h.setTextSize(TypedValue.COMPLEX_UNIT_PX, newTextSize);
         }
 
         void selectTicker(Ticker ticker) {

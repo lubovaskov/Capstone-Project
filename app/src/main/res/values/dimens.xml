@@ -5,6 +5,7 @@
     <!-- MainActivity -->
     <dimen name="main_market_cap_left_margin">12dp</dimen>
     <dimen name="main_price_right_margin">20dp</dimen>
+    <dimen name="focused_text_size_increase">8sp</dimen>
 
     <!-- Widget -->
     <!-- As of Android 4.0, app widgets are automatically given padding -->
