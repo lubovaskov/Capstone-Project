@@ -1,6 +1,7 @@
 package com.udacity.cryptomanager.utils;
 
 import android.content.Context;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -14,6 +15,9 @@ import com.udacity.cryptomanager.webapi.ListWrapper;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 
@@ -74,6 +78,13 @@ public class MainUtils {
             }
 
             if (tickers.size() > 0) {
+                //sort the tickers by rank
+                Collections.sort(tickers, new Comparator<Ticker>() {
+                    @Override
+                    public int compare(Ticker o1, Ticker o2) {
+                        return Integer.compare(o1.rank, o2.rank);
+                    }
+                });
                 //update tickers in the database with the data from the tickers list
                 CryptoDBResolver.updateTickersInDB(context, tickers);
                 //update widget data using the top 5 tickers
@@ -92,31 +103,31 @@ public class MainUtils {
         double absNumber = Math.abs(doubleNumber);
 
         if (absNumber >= 1000000000000000L) {
-            return String.format(Locale.getDefault(), "%1$d", (long) (doubleNumber / 1000000000000L)) + "T";
+            return String.format(Locale.getDefault(), "%1$dT", (long) (doubleNumber / 1000000000000L));
         } else if (absNumber >= 100000000000000L) {
-            return String.format(Locale.getDefault(), "%1$.1f", doubleNumber / 1000000000000L) + "T";
+            return String.format(Locale.getDefault(), "%1$.1fT", doubleNumber / 1000000000000L);
         } else if (absNumber >= 10000000000000L) {
-            return String.format(Locale.getDefault(), "%1$.2f", doubleNumber / 1000000000000L) + "T";
+            return String.format(Locale.getDefault(), "%1$.2fT", doubleNumber / 1000000000000L);
         } else if (absNumber >= 1000000000000L) {
-            return String.format(Locale.getDefault(), "%1$.3f", doubleNumber / 1000000000000L) + "T";
+            return String.format(Locale.getDefault(), "%1$.3fT", doubleNumber / 1000000000000L);
         } else if (absNumber >= 100000000000L) {
-            return String.format(Locale.getDefault(), "%1$.1f", doubleNumber / 1000000000) + "B";
+            return String.format(Locale.getDefault(), "%1$.1fB", doubleNumber / 1000000000);
         } else if (absNumber >= 10000000000L) {
-            return String.format(Locale.getDefault(), "%1$.2f", doubleNumber / 1000000000) + "B";
+            return String.format(Locale.getDefault(), "%1$.2fB", doubleNumber / 1000000000);
         } else if (absNumber >= 1000000000) {
-            return String.format(Locale.getDefault(), "%1$.3f", doubleNumber / 1000000000) + "B";
+            return String.format(Locale.getDefault(), "%1$.3fB", doubleNumber / 1000000000);
         } else if (absNumber >= 100000000) {
-            return String.format(Locale.getDefault(), "%1$.1f", doubleNumber / 1000000) + "M";
+            return String.format(Locale.getDefault(), "%1$.1fM", doubleNumber / 1000000);
         } else if (absNumber >= 10000000) {
-            return String.format(Locale.getDefault(), "%1$.2f", doubleNumber / 1000000) + "M";
+            return String.format(Locale.getDefault(), "%1$.2fM", doubleNumber / 1000000);
         } else if (absNumber >= 1000000) {
-            return String.format(Locale.getDefault(), "%1$.3f", doubleNumber / 1000000) + "M";
+            return String.format(Locale.getDefault(), "%1$.3fM", doubleNumber / 1000000);
         } else if (absNumber >= 100000) {
-            return String.format(Locale.getDefault(), "%1$.1f", doubleNumber / 1000) + "K";
+            return String.format(Locale.getDefault(), "%1$.1fK", doubleNumber / 1000);
         } else if (absNumber >= 10000) {
-            return String.format(Locale.getDefault(), "%1$.2f", doubleNumber / 1000) + "K";
+            return String.format(Locale.getDefault(), "%1$.2fK", doubleNumber / 1000);
         } else if (absNumber >= 1000) {
-            return String.format(Locale.getDefault(), "%1$.3f", doubleNumber / 1000) + "K";
+            return String.format(Locale.getDefault(), "%1$.3fK", doubleNumber / 1000);
         } else if (absNumber >= 100) {
             return String.format(Locale.getDefault(), "%1$.1f", doubleNumber);
         } else if (absNumber >= 10) {
@@ -146,5 +157,16 @@ public class MainUtils {
 
     public static String formatUnixTime(long unixTime) {
         return DateFormat.getDateTimeInstance().format(new Date(unixTime*1000));
+    }
+
+    public static int getTextColorByValue(@NonNull Context context, double value,
+                                          @ColorRes int neutralColor) {
+        if (value > 0) {
+            return context.getResources().getColor(R.color.material_color_green_primary_dark);
+        } else if (value < 0) {
+            return context.getResources().getColor(R.color.material_color_red_primary_dark);
+        } else {
+            return context.getResources().getColor(neutralColor);
+        }
     }
 }

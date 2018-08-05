@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview_listing"
     android:layout_width="match_parent"
     android:layout_height="@dimen/material_list_single_line_without_avatar_normal_height"
@@ -14,6 +13,5 @@
         android:layout_marginStart="@dimen/material_list_text_first_position_margin_start"
         android:layout_marginEnd="@dimen/material_list_text_last_position_margin_end"
         android:textSize="@dimen/material_list_normal_primary_text_size" />
-    <!--  -->
 
 </android.support.v7.widget.CardView>

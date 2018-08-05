@@ -6,7 +6,7 @@
     <string name="action_add_listings">Add…</string>
     <string name="action_clear_tickers">Clear all</string>
     <string name="action_delete_tickers">Delete</string>
-    <string name="last_updated_text">Last updated: %1$s</string>
+    <string name="last_updated_text">%1$s</string>
     <string name="global_market_text">Global market</string>
     <string name="active_cryptocurrencies_text">Cryptocurrencies: %1$d</string>
     <string name="active_markets_text">Markets: %1$d</string>
@@ -18,11 +18,11 @@
     <string name="total_market_cap_empty_text">Market Cap: N/A</string>
     <string name="total_volume_empty_text">24h Vol: N/A</string>
     <string name="btc_market_cap_empty_text">BTC Dominance: N/A</string>
-    <string name="last_updated_empty_text">Last updated: N/A</string>
+    <string name="last_updated_empty_text">Updated: N/A</string>
     <string name="tickers_text">Cryptocurrencies</string>
 
     <!-- AddListingsDialogFragment -->
-    <string name="title_dialog_add_listings">Choose listings to add</string>
+    <string name="title_dialog_add_listings">Select cryptocurrencies</string>
     <string name="btn_ok_add_listings">OK</string>
     <string name="btn_cancel_add_listings">Cancel</string>
     <string name="search_query_hint">Search…</string>
@@ -36,8 +36,8 @@
     <string name="change_1h_format">Change 1h: %1$+.2f%%</string>
     <string name="change_7d_format">Change 7d: %1$+.2f%%</string>
     <string name="change_24h_format">Change 24h: %1$+.2f%%</string>
-    <string name="detail_price_format">Price: %1$s</string>
-    <string name="symbol_format">Symbol: %1$s</string>
+    <string name="detail_price_format">$%1$s</string>
+    <string name="symbol_format">%1$s</string>
 
     <!-- Error texts -->
     <string name="not_online_error_text">There is no network connection</string>
@@ -55,7 +55,7 @@
     <string name="rank_format">Rank: %1$d</string>
     <string name="market_cap_format">Market cap: %1$s</string>
     <string name="volume_format">Volume: %1$s</string>
-    <string name="price_format">%1$s</string>
+    <string name="price_format">$%1$s</string>
     <string name="change_format">%1$+.2f%%</string>
     <string name="title_activity_test">TestActivity</string>
 

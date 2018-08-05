@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -152,11 +153,11 @@ public class AddListingsAdapter
         @Override
         public void onFocusChange(View view, boolean focused) {
             if (focused) {
-                tvListingName.setTextSize(
+                tvListingName.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         mContext.getResources().getDimension(
-                                R.dimen.material_list_normal_primary_text_size) + 4);
+                                R.dimen.material_list_normal_primary_text_size) + 8);
             } else {
-                tvListingName.setTextSize(
+                tvListingName.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         mContext.getResources().getDimension(
                                 R.dimen.material_list_normal_primary_text_size));
             }

@@ -7,73 +7,149 @@
     android:orientation="vertical"
     tools:context="com.udacity.cryptomanager.TickerDetailsActivity">
 
-    <TextView
-        android:id="@+id/textview_ticker_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <TextView
-        android:id="@+id/textview_ticker_symbol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/material_card_edge_margin"
+        app:cardElevation="@dimen/material_elevation_card_raised">
 
-    <TextView
-        android:id="@+id/textview_ticker_rank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textview_ticker_market_cap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/textview_ticker_symbol"
+                style="@style/MaterialTypography.Regular.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingTop="@dimen/material_card_title_block_large_padding_top"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textview_ticker_volume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/textview_ticker_id"
+                style="@style/MaterialTypography.Regular.Subheading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/material_card_title_block_large_padding_bottom_last_block"
+                android:paddingEnd="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingTop="@dimen/material_card_title_block_large_subtitle_margin_top"
+                android:textColor="@color/material_subheader_text_color_default"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_ticker_symbol" />
 
-    <TextView
-        android:id="@+id/textview_ticker_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+            <TextView
+                android:id="@+id/textview_ticker_price"
+                style="@style/MaterialTypography.Regular.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/material_card_title_block_large_padding_bottom_last_block"
+                android:paddingEnd="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
+                android:paddingTop="@dimen/material_card_title_block_large_subtitle_margin_top"
+                android:textColor="@color/material_typography_primary_text_color_dark"
+                app:layout_constraintBaseline_toBaselineOf="@id/textview_ticker_symbol"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textview_ticker_change_24h"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimaryLight"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_ticker_id">
 
-    <TextView
-        android:id="@+id/textview_ticker_change_1h"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingEnd="@dimen/material_card_supporting_text_padding_horizontal"
+                    android:paddingStart="@dimen/material_card_supporting_text_padding_horizontal">
 
-    <TextView
-        android:id="@+id/textview_ticker_change_7d"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+                    <TextView
+                        android:id="@+id/textview_ticker_rank"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top"
+                        android:textColor="@color/material_typography_primary_text_color_dark"
+                        android:textSize="@dimen/material_card_supporting_text_text_size" />
 
-    <TextView
-        android:id="@+id/textview_ticker_circulating_supply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+                    <TextView
+                        android:id="@+id/textview_ticker_market_cap"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
 
-    <TextView
-        android:id="@+id/textview_ticker_total_supply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+                    <TextView
+                        android:id="@+id/textview_ticker_volume"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
 
-    <TextView
-        android:id="@+id/textview_ticker_max_supply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/material_card_title_block_large_title_text_size"/>
+                    <TextView
+                        android:id="@+id/textview_ticker_change_24h"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
+
+                    <TextView
+                        android:id="@+id/textview_ticker_change_1h"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
+
+                    <TextView
+                        android:id="@+id/textview_ticker_change_7d"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
+
+                    <TextView
+                        android:id="@+id/textview_ticker_circulating_supply"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
+
+                    <TextView
+                        android:id="@+id/textview_ticker_total_supply"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
+
+                    <TextView
+                        android:id="@+id/textview_ticker_max_supply"
+                        style="@style/MaterialTypography.Regular.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/material_card_supporting_text_padding_bottom_last_block"
+                        android:paddingTop="@dimen/material_card_supporting_text_padding_top" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

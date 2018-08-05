@@ -3,15 +3,12 @@ package com.udacity.cryptomanager;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
-import android.graphics.Color;
 import android.widget.RemoteViews;
 
 import com.udacity.cryptomanager.utils.MainUtils;
 import com.udacity.cryptomanager.utils.WidgetUtils;
 import com.udacity.cryptomanager.valueobjects.Ticker;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class CryptoWidget extends AppWidgetProvider {
@@ -27,8 +24,6 @@ public class CryptoWidget extends AppWidgetProvider {
                 RemoteViews tickerView = new RemoteViews(context.getPackageName(),
                         R.layout.widget_crypto_item);
 
-                tickerView.setTextViewText(R.id.textview_last_updated,
-                        MainUtils.formatUnixTime(ticker.lastUpdated));
                 tickerView.setTextViewText(R.id.textview_widget_symbol, ticker.symbol);
                 tickerView.setTextViewText(R.id.textview_widget_price, String.format(
                         context.getResources().getString(R.string.price_format),
@@ -36,18 +31,11 @@ public class CryptoWidget extends AppWidgetProvider {
                 tickerView.setTextViewText(R.id.textview_widget_change_24h, String.format(
                         context.getResources().getString(R.string.change_format),
                         ticker.quotes.tickerUsd.percentChange24h));
-                if (ticker.quotes.tickerUsd.percentChange24h > 0) {
-                    tickerView.setTextColor(R.id.textview_widget_change_24h,
-                            context.getResources().getColor(R.color.material_color_green_primary_dark)
-                    );
-                } else if (ticker.quotes.tickerUsd.percentChange24h < 0) {
-                    tickerView.setTextColor(R.id.textview_widget_change_24h,
-                            context.getResources().getColor(R.color.material_color_red_primary_dark)
-                    );
-                } else {
-                    tickerView.setTextColor(R.id.textview_widget_change_24h,
-                            context.getResources().getColor(R.color.material_color_white));
-                }
+                tickerView.setTextColor(R.id.textview_widget_change_24h,
+                        MainUtils.getTextColorByValue(
+                                context,
+                                ticker.quotes.tickerUsd.percentChange24h,
+                                R.color.material_color_white));
                 views.addView(R.id.widget_tickers_container, tickerView);
             }
         } else {

@@ -1,12 +1,12 @@
 package com.udacity.cryptomanager.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -196,13 +196,12 @@ public class TickersAdapter extends RecyclerView.Adapter<TickersAdapter.TickersA
 
         @Override
         public void onFocusChange(View view, boolean focused) {
-            TextView v = view.findViewById(R.id.textview_ticker_symbol);
             if (focused) {
-                v.setTextSize(
+                tvSymbol.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         mContext.getResources().getDimension(
-                                R.dimen.material_list_normal_primary_text_size) + 4);
+                                R.dimen.material_list_normal_primary_text_size) + 8);
             } else {
-                v.setTextSize(
+                tvSymbol.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         mContext.getResources().getDimension(
                                 R.dimen.material_list_normal_primary_text_size));
             }
@@ -240,18 +239,11 @@ public class TickersAdapter extends RecyclerView.Adapter<TickersAdapter.TickersA
                 tvChange24h.setText(String.format(
                         mContext.getResources().getString(R.string.change_format),
                         ticker.quotes.tickerUsd.percentChange24h));
-                if (ticker.quotes.tickerUsd.percentChange24h > 0) {
-                    tvChange24h.setTextColor(
-                            mContext.getResources().getColor(R.color.material_color_green_primary_dark)
-                    );
-                } else if (ticker.quotes.tickerUsd.percentChange24h < 0) {
-                    tvChange24h.setTextColor(
-                            mContext.getResources().getColor(R.color.material_color_red_primary_dark)
-                    );
-                } else {
-                    tvChange24h.setTextColor(
-                            mContext.getResources().getColor(R.color.material_typography_primary_text_color_dark));
-                }
+                tvChange24h.setTextColor(MainUtils.getTextColorByValue(
+                        mContext,
+                        ticker.quotes.tickerUsd.percentChange24h,
+                        R.color.material_typography_primary_text_color_dark));
+
                 //change card background color of selected tickers
                 if (tickersSelected.contains(ticker)) {
                     cardView.setCardBackgroundColor(

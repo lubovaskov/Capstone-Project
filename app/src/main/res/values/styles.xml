@@ -5,8 +5,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <!-- replace standard action bar with a toolbar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+
         <!-- make the action mode style the same as the standard action bar style -->
         <item name="actionModeStyle">@style/ActionModeStyle</item>
+        
+        <!-- activity transitions -->
+        <item name="android:windowEnterTransition">
+            @transition/slide
+        </item>
     </style>
 
     <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">

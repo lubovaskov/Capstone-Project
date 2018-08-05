@@ -1,8 +1,10 @@
 package com.udacity.cryptomanager;
 
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -18,6 +20,9 @@ public class TickerDetailsActivity extends AppCompatActivity {
 
     private Unbinder unbinder;
 
+    @Nullable
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.textview_ticker_id)
     TextView tvId;
     @BindView(R.id.textview_ticker_symbol)
@@ -60,9 +65,11 @@ public class TickerDetailsActivity extends AppCompatActivity {
         CryptoManagerApplication application = (CryptoManagerApplication) getApplication();
         tracker = application.getDefaultTracker();
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
+
+        final ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         ticker = getIntent().getParcelableExtra(Ticker.TICKER_PARCELABLE_NAME);
@@ -142,6 +149,20 @@ public class TickerDetailsActivity extends AppCompatActivity {
             tvTotalSupply.setText(String.format(
                     getResources().getString(R.string.total_supply_format),
                     MainUtils.shortenNumber(ticker.totalSupply)));
+
+            tvChange1h.setTextColor(MainUtils.getTextColorByValue(
+                    this,
+                    ticker.quotes.tickerUsd.percentChange1h,
+                    R.color.material_typography_primary_text_color_dark));
+            tvChange7d.setTextColor(MainUtils.getTextColorByValue(
+                    this,
+                    ticker.quotes.tickerUsd.percentChange7d,
+                    R.color.material_typography_primary_text_color_dark));
+            tvChange24h.setTextColor(MainUtils.getTextColorByValue(
+                    this,
+                    ticker.quotes.tickerUsd.percentChange24h,
+                    R.color.material_typography_primary_text_color_dark));
         }
     }
 }
+

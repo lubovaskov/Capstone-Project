@@ -1,11 +1,15 @@
 package com.udacity.cryptomanager;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -50,6 +54,9 @@ public abstract class BaseMainActivity extends AppCompatActivity implements
 
     private Unbinder unbinder;
 
+    @Nullable
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.textview_active_cryptocurrencies)
     TextView tvActiveCryptoCurrencies;
     @BindView(R.id.textview_active_markets)
@@ -79,12 +86,18 @@ public abstract class BaseMainActivity extends AppCompatActivity implements
 
         unbinder = ButterKnife.bind(this);
 
+        setSupportActionBar(toolbar);
+
+        final ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setTitle(R.string.app_name);
+        }
+
         //get tracker for analytics
         CryptoManagerApplication application = (CryptoManagerApplication) getApplication();
         tracker = application.getDefaultTracker();
 
-        tickersAdapter = new TickersAdapter(this, this);
-        rvTickers.setAdapter(tickersAdapter);
+        initRecyclerViewTickers();
 
         //initialize global data and tickers loaders
         initLoaders();
@@ -118,6 +131,18 @@ public abstract class BaseMainActivity extends AppCompatActivity implements
         getSupportLoaderManager().initLoader(GLOBAL_DATA_LOADER_ID, null, this);
         //initialize loader for tickers data
         getSupportLoaderManager().initLoader(TICKERS_LOADER_ID, null, this);
+    }
+
+    private void initRecyclerViewTickers() {
+        tickersAdapter = new TickersAdapter(this, this);
+        rvTickers.setAdapter(tickersAdapter);
+        Drawable divDrawable = getDrawable(R.drawable.horizontal_divider);
+        if (divDrawable != null) {
+            DividerItemDecoration divider = new DividerItemDecoration(this,
+                    DividerItemDecoration.VERTICAL);
+            divider.setDrawable(divDrawable);
+            rvTickers.addItemDecoration(divider);
+        }
     }
 
     private void displayGlobalData(GlobalData globalData) {
@@ -239,7 +264,8 @@ public abstract class BaseMainActivity extends AppCompatActivity implements
         if (tickers != null) {
             intent.putExtra(Ticker.TICKER_PARCELABLE_NAME, tickers.get(position));
         }
-        startActivity(intent);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
+        startActivity(intent, options.toBundle());
     }
 
     @Override

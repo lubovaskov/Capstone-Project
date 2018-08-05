@@ -6,4 +6,6 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="selectedCard">#FFCCCC</color>
+
+    <color name="widget_text_color">@android:color/white</color>
 </resources>
